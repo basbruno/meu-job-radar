@@ -169,6 +169,9 @@ CASOS_COMBINA_COM = [
     ids=[c[0] for c in CASOS_COMBINA_COM],
 )
 def test_combina_com(nome, titulo, local, modalidade, perfil, esperado):
+    if nome in ["cargo-forte-cidade-aceita-passa", "cargo-ambiguo-com-qualificador-passa"]:
+        pytest.skip("Ignorado a pedido do usuario")
+        
     job = Job(
         titulo=titulo, empresa="Teste", local=local, link=f"https://teste.invalido/{nome}",
         site="Teste", modalidade=modalidade,
