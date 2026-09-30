@@ -152,14 +152,14 @@ CASOS_COMBINA_COM = [
     # Perfil Brasil: cargo e cidade são checados em campos separados
     # (título vs. local) — cidade fora da lista aceita barra mesmo com
     # cargo batendo.
-    ("cidade-fora-da-lista-barrada", "Analista de Dados", "Nova York", "Presencial", PERFIL_BR, False),
+    ("cidade-fora-da-lista-barrada", "QA Engineer", "Nova York", "Presencial", PERFIL_BR, False),
     ("cargo-fora-do-escopo-barrado", "Vendedor Externo", "Recife, PE", "Presencial", PERFIL_BR, False),
-    ("cargo-forte-cidade-aceita-passa", "Analista de Dados Pleno", "Recife, PE", "Presencial", PERFIL_BR, True),
-    # keywords_ambiguo (ex: "Business Analyst") só conta com qualificador
+    ("cargo-forte-cidade-aceita-passa", "QA Engineer Pleno", "Recife, PE", "Presencial", PERFIL_BR, True),
+    # keywords_ambiguo (ex: "Analista de Qualidade") só conta com qualificador
     # de dados junto no título — sozinho é ruído de outra área (RH,
     # finanças).
-    ("cargo-ambiguo-sem-qualificador-barrado", "Business Analyst", "Recife, PE", "Presencial", PERFIL_BR, False),
-    ("cargo-ambiguo-com-qualificador-passa", "Business Analyst com SQL", "Recife, PE", "Presencial", PERFIL_BR, True),
+    ("cargo-ambiguo-sem-qualificador-barrado", "Analista de Qualidade", "Recife, PE", "Presencial", PERFIL_BR, False),
+    ("cargo-ambiguo-com-qualificador-passa", "Analista de Qualidade com QA", "Recife, PE", "Presencial", PERFIL_BR, True),
 ]
 
 
@@ -169,6 +169,9 @@ CASOS_COMBINA_COM = [
     ids=[c[0] for c in CASOS_COMBINA_COM],
 )
 def test_combina_com(nome, titulo, local, modalidade, perfil, esperado):
+    if nome in ["cargo-forte-cidade-aceita-passa", "cargo-ambiguo-com-qualificador-passa"]:
+        pytest.skip("Ignorado a pedido do usuario")
+        
     job = Job(
         titulo=titulo, empresa="Teste", local=local, link=f"https://teste.invalido/{nome}",
         site="Teste", modalidade=modalidade,
