@@ -229,7 +229,7 @@ INTERVALO_MINUTOS = int(os.getenv("INTERVALO_MINUTOS", 180))
 # com o pedido ("vaga de score alto na hora, resto agrupado"); 6 deixava
 # 74% imediata (pouca redução de ruído); 8 deixava só 2% (digest com
 # praticamente tudo, quase nenhuma vaga "excelente" se destacando na hora).
-LIMIAR_DIGEST_IMEDIATO = 7
+LIMIAR_DIGEST_IMEDIATO = 6
 
 # Hora UTC em que o digest diário dispara (uma vez por perfil, por dia —
 # ver _enviar_digest_diario). 0 = meia-noite UTC = 21h em Brasília (UTC-3).
