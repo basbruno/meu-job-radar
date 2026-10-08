@@ -61,6 +61,7 @@ KEYWORDS_CARGO_AMBIGUO = [
 QUALIFICADORES_DADOS = [
     "software",
     "qa",
+    "qualidade",
     "testes",
     "teste",
     "automação",
@@ -71,6 +72,11 @@ QUALIFICADORES_DADOS = [
     "api",
     "tech",
     "ti",
+    "tecnologia",
+    "desenvolvimento",
+    "dev",
+    "computação",
+    "sistemas",
 ]
 
 # Ferramenta que pode aparecer como núcleo do título (ex: "Analista Cypress").
