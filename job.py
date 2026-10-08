@@ -1036,7 +1036,22 @@ class Job:
             if not idioma_bateu_titulo:
                 bate_remoto = False
 
-        bate_cidade = bate_remoto or any(
+        # Espelho de bate_remoto pro caso Híbrido: vaga com modalidade="Híbrido"
+        # passa se QUALQUER cidade aceita (exceto as flags de remoto) aparecer
+        # no local — isso permite que "Guarulhos, SP" passe quando "Guarulhos"
+        # está em CIDADES, mesmo que o local não contenha "São Paulo" literalmente.
+        # Sem isso, a única forma de uma vaga híbrida passar era bate_cidade via
+        # substring, o que exigia a cidade exata no texto do local — vaga com
+        # local="São Paulo e Região" passava, mas local="Guarulhos, SP" não,
+        # mesmo Guarulhos estando na lista.
+        quer_hibrido = any(_normalizar(c) not in _FLAGS_REMOTO for c in regras.cidades)
+        bate_hibrido = quer_hibrido and modalidade_norm == "hibrido" and any(
+            _contem_termo(_normalizar(c), local_norm)
+            for c in regras.cidades
+            if _normalizar(c) not in _FLAGS_REMOTO
+        )
+
+        bate_cidade = bate_remoto or bate_hibrido or any(
             _contem_termo(_normalizar(c), local_norm)
             for c in regras.cidades
             if _normalizar(c) not in _FLAGS_REMOTO

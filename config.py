@@ -132,7 +132,22 @@ TERMOS_POR_CICLO = 10
 
 CIDADES = [
     "Remoto",
+    # "Híbrido" aqui funciona como flag de modalidade, não como cidade literal
+    # — vaga com modalidade="Híbrido" que NÃO declara cidade no campo local
+    # (ex: local="Brasil") passaria em bate_cidade se o nome "hibrido" estiver
+    # aqui, mas isso é ruído: qualquer vaga híbrida no Brasil inteiro passaria.
+    # A forma correta é checar via bate_hibrido em job.py (ver lá) — esse campo
+    # lista só CIDADES onde híbrido é aceito.
     "São Paulo",
+    "Guarulhos",
+    "Santo André",
+    "São Bernardo do Campo",
+    "São Caetano do Sul",
+    "Osasco",
+    "Barueri",
+    "Mauá",
+    "Diadema",
+    "Campinas",
 ]
 
 
