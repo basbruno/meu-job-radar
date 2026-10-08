@@ -34,6 +34,16 @@ KEYWORDS_CARGO_FORTE = [
     "QA Manual",
     "Performance Tester",
     "Test Automation Engineer",
+    "Estágio em QA",
+    "Estágio QA",
+    "Estágio em Testes",
+    "Estagiário de QA",
+    "Estagiária de QA",
+    "Estagiário de Testes",
+    "Estagiária de Testes",
+    "Estágio em Qualidade de Software",
+    "Estagiário de Qualidade de Software",
+    "Estagiária de Qualidade de Software",
 ]
 
 # Cargo ambíguo: título que existe em QA mas também em outras áreas.
@@ -41,6 +51,9 @@ KEYWORDS_CARGO_FORTE = [
 KEYWORDS_CARGO_AMBIGUO = [
     "Analista de Qualidade",
     "Quality Analyst",
+    "Estágio",
+    "Estagiário",
+    "Estagiária",
 ]
 
 # Termo que precisa aparecer junto no título quando o cargo é ambíguo,
@@ -79,6 +92,12 @@ QUALIFICADORES_CARGO = [
     "specialist",
     "tester",
     "qa",
+    "estagio",
+    "estágio",
+    "estagiario",
+    "estagiário",
+    "estagiaria",
+    "estagiária",
 ]
 
 KEYWORDS = KEYWORDS_CARGO_FORTE + KEYWORDS_CARGO_AMBIGUO
@@ -102,6 +121,11 @@ TERMOS_CARGO_EXTRA = [
     "qa",
     "quality assurance",
     "testes de software",
+    "estagio qa",
+    "estagio testes",
+    "estagio qualidade de software",
+    "estagiario qa",
+    "estagiaria qa",
 ]
 
 TERMOS_CARGO = sorted(set(k.lower() for k in KEYWORDS) | set(TERMOS_CARGO_EXTRA))
