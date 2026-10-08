@@ -13,6 +13,20 @@
 
 </div>
 
+## Limpeza do banco de vagas
+
+Para revisar a limpeza sem alterar o banco, execute:
+
+```bash
+python scripts/limpar_vagas.py --dry-run
+```
+
+Para remover duplicatas e publicacoes marcadas como antigas:
+
+```bash
+python scripts/limpar_vagas.py
+```
+
 ---
 
 ## 💎 Proposta de valor
